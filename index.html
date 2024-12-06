@@ -56,6 +56,16 @@
              data-name="people work 10" 
              data-tags="construction, workers, safety" 
              title="Building construction workers">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_11.png" 
+             alt="Image of workers at a construction site" 
+             data-name="people work 11" 
+             data-tags="team, construction, workers" 
+             title="Construction team">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_12.png" 
+             alt="Image of workers in an office" 
+             data-name="people work 12" 
+             data-tags="office, business" 
+             title="Business office workers">
         <!-- Add other images similarly -->
     </div>
 
@@ -91,7 +101,12 @@
 
             images.forEach(img => {
                 const name = img.getAttribute('data-name').toLowerCase();
-                if (name.includes(input)) {
+                const alt = img.getAttribute('alt').toLowerCase();
+                const tags = img.getAttribute('data-tags').toLowerCase();
+                const title = img.getAttribute('title').toLowerCase();
+
+                // Check if any attribute contains search text
+                if (name.includes(input) || alt.includes(input) || tags.includes(input) || title.includes(input)) {
                     img.classList.remove('hidden');
                 } else {
                     img.classList.add('hidden');
