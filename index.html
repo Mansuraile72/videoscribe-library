@@ -6,45 +6,76 @@
     <title>Image Gallery</title>
     <style>
         body {
+            text-align: center;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        }
+        #gallery {
             display: flex;
             flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
-            background-color: #f4f4f4;
         }
-        .gallery img {
-            margin: 10px;
-            width: 200px;
+        #gallery img {
+            width: 150px; /* Default size */
             height: auto;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease; /* Smooth resizing effect */
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1 style="width: 100%; text-align: center; margin-top: 20px;">Mansur Image Gallery</h1>
-    <div class="gallery">
-        <!-- Images will be loaded here -->
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_9.png" alt="Image 1">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_10.png" alt="Image 2">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_11.png" alt="Image 3">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_12.png" alt="Image 4">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_13.png" alt="Image 5">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_14.png" alt="Image 6">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_15.png" alt="Image 7">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_16.png" alt="Image 8">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_17.png" alt="Image 9">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_18.png" alt="Image 10">
-<img src="images/People%20at%20Work%20%28online%29%20%284%29_1.png" alt="Image 11">
-<img src="images/People%20at%20Work%20%28online%29%20%284%29_2.png" alt="Image 12">
-<img src="images/People%20at%20Work%20%28online%29%20%284%29_3.png" alt="Image 13">
-<img src="images/People%20at%20Work%20%28online%29%20%284%29_4.png" alt="Image 14">
-<img src="images/People%20at%20Work%20%28online%29%20%284%29_5.png" alt="Image 15">
-<img src="images/People%20at%20Work%20%28online%29%20%283%29_8.png" alt="Image 16">
+    <h1>Image Gallery</h1>
 
+    <!-- Buttons for resizing -->
+    <div>
+        <button onclick="resizeImages('small')">Small</button>
+        <button onclick="resizeImages('medium')">Medium</button>
+        <button onclick="resizeImages('large')">Large</button>
     </div>
+
+    <!-- Image Gallery -->
+    <div id="gallery">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_9.png" alt="Image 1">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_10.png" alt="Image 2">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_11.png" alt="Image 3">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_12.png" alt="Image 4">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_13.png" alt="Image 5">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_14.png" alt="Image 6">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_15.png" alt="Image 7">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_16.png" alt="Image 8">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_17.png" alt="Image 9">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_18.png" alt="Image 10">
+        <img src="images/People%20at%20Work%20%28online%29%20%284%29_1.png" alt="Image 11">
+        <img src="images/People%20at%20Work%20%28online%29%20%284%29_2.png" alt="Image 12">
+        <img src="images/People%20at%20Work%20%28online%29%20%284%29_3.png" alt="Image 13">
+        <img src="images/People%20at%20Work%20%28online%29%20%284%29_4.png" alt="Image 14">
+        <img src="images/People%20at%20Work%20%28online%29%20%284%29_5.png" alt="Image 15">
+        <img src="images/People%20at%20Work%20%28online%29%20%283%29_8.png" alt="Image 16">
+    </div>
+
+    <!-- JavaScript for resizing images -->
+    <script>
+        function resizeImages(size) {
+            const images = document.querySelectorAll('#gallery img');
+            let newSize;
+
+            if (size === 'small') {
+                newSize = '100px'; // Small size
+            } else if (size === 'medium') {
+                newSize = '150px'; // Default size
+            } else if (size === 'large') {
+                newSize = '250px'; // Large size
+            }
+
+            images.forEach(img => {
+                img.style.width = newSize;
+            });
+        }
+    </script>
 </body>
 </html>
