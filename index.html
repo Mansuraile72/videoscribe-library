@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <style>
+        
         body {
             text-align: center;
             font-family: Arial, sans-serif;
@@ -24,6 +25,21 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+function filterByTag(tag) {
+    const images = document.querySelectorAll('#gallery img');
+
+    images.forEach(img => {
+        const tags = img.getAttribute('data-tags').toLowerCase();
+
+        if (tags.includes(tag)) {
+            img.classList.remove('hidden');
+        } else {
+            img.classList.add('hidden');
+        }
+    });
+}
+
+        
         #gallery {
             display: flex;
             flex-wrap: wrap;
