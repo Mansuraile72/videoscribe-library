@@ -10,12 +10,24 @@
             font-family: Arial, sans-serif;
         }
         #search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 20px;
         }
         input[type="text"] {
             padding: 10px;
             width: 300px;
             font-size: 16px;
+        }
+        .emoji-button {
+            font-size: 18px;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
         }
         button {
             padding: 10px 20px;
@@ -43,7 +55,17 @@
 
     <!-- Search Bar -->
     <div id="search-bar">
-        <input type="text" id="searchInput" placeholder="Search images by name..." onkeyup="searchImages()">
+        <div>
+            <!-- Left side buttons -->
+            <button class="emoji-button" onclick="filterByTag('happy')">😂</button>
+            <button class="emoji-button" onclick="filterByTag('angry')">😡</button>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search images by name or tags..." onkeyup="searchImages()">
+        <div>
+            <!-- Right side buttons -->
+            <button class="emoji-button" onclick="filterByTag('money')">💰</button>
+            <button class="emoji-button" onclick="filterByTag('travel')">✈️</button>
+        </div>
     </div>
 
     <!-- Buttons for resizing -->
@@ -55,22 +77,10 @@
 
     <!-- Image Gallery -->
     <div id="gallery">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_9.png" alt="Image 1" data-name="people work 9">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_10.png" alt="Image 2" data-name="people work 10">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_11.png" alt="Image 3" data-name="people work 11">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_12.png" alt="Image 4" data-name="people work 12">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_13.png" alt="Image 5" data-name="people work 13">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_14.png" alt="Image 6" data-name="people work 14">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_15.png" alt="Image 7" data-name="people work 15">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_16.png" alt="Image 8" data-name="people work 16">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_17.png" alt="Image 9" data-name="people work 17">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_18.png" alt="Image 10" data-name="people work 18">
-        <img src="images/People%20at%20Work%20%28online%29%20%284%29_1.png" alt="Image 11" data-name="people work 1">
-        <img src="images/People%20at%20Work%20%28online%29%20%284%29_2.png" alt="Image 12" data-name="people work 2">
-        <img src="images/People%20at%20Work%20%28online%29%20%284%29_3.png" alt="Image 13" data-name="people work 3">
-        <img src="images/People%20at%20Work%20%28online%29%20%284%29_4.png" alt="Image 14" data-name="people work 4">
-        <img src="images/People%20at%20Work%20%28online%29%20%284%29_5.png" alt="Image 15" data-name="people work 5">
-        <img src="images/People%20at%20Work%20%28online%29%20%283%29_8.png" alt="Image 16" data-name="people work 8">
+        <img src="images/image1.png" alt="Image 1" data-name="happy" data-tags="smile happy joy">
+        <img src="images/image2.png" alt="Image 2" data-name="angry" data-tags="mad angry upset">
+        <img src="images/image3.png" alt="Image 3" data-name="money" data-tags="wealth money finance">
+        <img src="images/image4.png" alt="Image 4" data-name="travel" data-tags="journey travel vacation">
     </div>
 
     <!-- JavaScript -->
@@ -98,7 +108,20 @@
 
             images.forEach(img => {
                 const name = img.getAttribute('data-name').toLowerCase();
-                if (name.includes(input)) {
+                const tags = img.getAttribute('data-tags').toLowerCase();
+                if (name.includes(input) || tags.includes(input)) {
+                    img.classList.remove('hidden');
+                } else {
+                    img.classList.add('hidden');
+                }
+            });
+        }
+
+        function filterByTag(tag) {
+            const images = document.querySelectorAll('#gallery img');
+            images.forEach(img => {
+                const tags = img.getAttribute('data-tags').toLowerCase();
+                if (tags.includes(tag)) {
                     img.classList.remove('hidden');
                 } else {
                     img.classList.add('hidden');
