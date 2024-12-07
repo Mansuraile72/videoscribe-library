@@ -25,7 +25,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-function filterByTag(tag) {
+       function filterByTag(tag) {
     const images = document.querySelectorAll('#gallery img');
 
     images.forEach(img => {
@@ -65,25 +65,23 @@ function filterByTag(tag) {
 
     <!-- Search Bar -->
     <div id="search-bar">
-        <input type="text" id="searchInput" placeholder="Search images..." onkeyup="searchImages()">
-    </div>
-<script>
     function searchImages() {
-        const input = document.getElementById('searchInput').value.toLowerCase();
-        const images = document.querySelectorAll('#gallery img');
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const images = document.querySelectorAll('#gallery img');
 
-        images.forEach(img => {
-            const name = img.getAttribute('data-name').toLowerCase();
-            const tags = img.getAttribute('data-tags').toLowerCase();
+    images.forEach(img => {
+        const name = img.getAttribute('data-name').toLowerCase();
+        const tags = img.getAttribute('data-tags').toLowerCase();
 
-            // Show image if name or tags match the input
-            if (name.includes(input) || tags.includes(input)) {
-                img.classList.remove('hidden');
-            } else {
-                img.classList.add('hidden');
-            }
-        });
-    }
+        // Check if input matches name or tags
+        if (name.includes(input) || tags.includes(input)) {
+            img.classList.remove('hidden');
+        } else {
+            img.classList.add('hidden');
+        }
+    });
+}
+
 </script>
 
 
