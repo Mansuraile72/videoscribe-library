@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery with Search</title>
+    <title>Image Gallery</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
         }
         #search-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: 20px;
         }
         input[type="text"] {
             padding: 10px;
             width: 300px;
             font-size: 16px;
-        }
-        .emoji-button {
-            font-size: 18px;
-            padding: 5px 10px;
-            margin: 0 5px;
-            cursor: pointer;
             border: 1px solid #ccc;
-            background-color: #f9f9f9;
             border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
         }
         #gallery {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
+            margin: 20px;
         }
         #gallery img {
             width: 150px;
             height: auto;
             transition: all 0.3s ease;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
         }
         .hidden {
             display: none;
@@ -51,83 +45,39 @@
     </style>
 </head>
 <body>
-    <h1>Mansur Image Gallery</h1>
+    <h1>Image Gallery</h1>
 
     <!-- Search Bar -->
     <div id="search-bar">
-        <div>
-            <!-- Left side buttons -->
-            <button class="emoji-button" onclick="filterByTag('happy')">😂</button>
-            <button class="emoji-button" onclick="filterByTag('angry')">😡</button>
-        </div>
-        <input type="text" id="searchInput" placeholder="Search images by name or tags..." onkeyup="searchImages()">
-        <div>
-            <!-- Right side buttons -->
-            <button class="emoji-button" onclick="filterByTag('money')">💰</button>
-            <button class="emoji-button" onclick="filterByTag('travel')">✈️</button>
-        </div>
+        <input type="text" id="searchInput" placeholder="Search images..." onkeyup="searchImages()">
     </div>
+<script>
+    function searchImages() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const images = document.querySelectorAll('#gallery img');
 
-    <!-- Buttons for resizing -->
-    <div>
-        <button onclick="resizeImages('small')">Small</button>
-        <button onclick="resizeImages('medium')">Medium</button>
-        <button onclick="resizeImages('large')">Large</button>
-    </div>
+        images.forEach(img => {
+            const name = img.getAttribute('data-name').toLowerCase();
+            const tags = img.getAttribute('data-tags').toLowerCase();
 
+            // Show image if name or tags match the input
+            if (name.includes(input) || tags.includes(input)) {
+                img.classList.remove('hidden');
+            } else {
+                img.classList.add('hidden');
+            }
+        });
+    }
+</script>
+
+
+    
     <!-- Image Gallery -->
     <div id="gallery">
-        <img src="images/image1.png" alt="Image 1" data-name="happy" data-tags="smile happy joy">
-        <img src="images/image2.png" alt="Image 2" data-name="angry" data-tags="mad angry upset">
-        <img src="images/image3.png" alt="Image 3" data-name="money" data-tags="wealth money finance">
-        <img src="images/image4.png" alt="Image 4" data-name="travel" data-tags="journey travel vacation">
+        <img src="images/image1.png" alt="Happy Image" data-name="happy" data-tags="smile happy joy">
+        <img src="images/image2.png" alt="Angry Image" data-name="angry" data-tags="mad angry upset">
+        <img src="images/image3.png" alt="Money Image" data-name="money" data-tags="wealth money finance">
+        <img src="images/image4.png" alt="Travel Image" data-name="travel" data-tags="journey travel vacation">
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        function resizeImages(size) {
-            const images = document.querySelectorAll('#gallery img');
-            let newSize;
-
-            if (size === 'small') {
-                newSize = '100px'; // Small size
-            } else if (size === 'medium') {
-                newSize = '150px'; // Default size
-            } else if (size === 'large') {
-                newSize = '250px'; // Large size
-            }
-
-            images.forEach(img => {
-                img.style.width = newSize;
-            });
-        }
-
-        function searchImages() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const images = document.querySelectorAll('#gallery img');
-
-            images.forEach(img => {
-                const name = img.getAttribute('data-name').toLowerCase();
-                const tags = img.getAttribute('data-tags').toLowerCase();
-                if (name.includes(input) || tags.includes(input)) {
-                    img.classList.remove('hidden');
-                } else {
-                    img.classList.add('hidden');
-                }
-            });
-        }
-
-        function filterByTag(tag) {
-            const images = document.querySelectorAll('#gallery img');
-            images.forEach(img => {
-                const tags = img.getAttribute('data-tags').toLowerCase();
-                if (tags.includes(tag)) {
-                    img.classList.remove('hidden');
-                } else {
-                    img.classList.add('hidden');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
