@@ -1,7 +1,7 @@
 const images = [
     {"src": "Healthcare and Medical%20(online)%20(2)_12.jpg",
         "tags": [] },
-    {"src": "Healthcare and Medical (online) (2)_13.jpg",
+    {"src": "Healthcare and Medical(online)(2)_13.jpg",
         "tags": [] },
     {
         "src": "Healthcare and Medical (online) (2)_14.jpg",
