@@ -1,15 +1,172 @@
 const images = [
-  { src: "image1.png", tags: ["Happy", "Enjoy"] },
-  { src: "image2.png", tags: ["Angry", "Confused"] },
-  { src: "image3.png", tags: ["Cry", "Sad"] },
-  { src: "image4.png", tags: ["Travel", "Money"] },
-  { src: "image5.png", tags: ["Girl", "Talking"] },
-  { src: "image6.png", tags: ["Boy", "Relaxed"] },
-  { src: "image7.png", tags: ["Working", "Computer"] },
-  { src: "image8.png", tags: ["Confidence", "Thinking"] },
-  { src: "image9.png", tags: ["People1", "Standing"] },
-  { src: "image10.png", tags: ["Front", "Looking"] },
-  { src: "image11.png", tags: ["Shopping", "Idea"] },
+    {
+        "src": "Healthcare and Medical (online) (2)_12.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_13.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_14.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_15.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_16.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_17.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (2)_18.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_1.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_10.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_11.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_12.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_13.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_14.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_15.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_16.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_17.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_18.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_2.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_3.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_4 - Copy.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_4.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_5.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_6.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_7.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_8.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (3)_9.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_1.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_10.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_12.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_13.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_14.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_15.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_16.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_17.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_2.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_3.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_4.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_5.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_6.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_7.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_8.jpg",
+        "tags": []
+    },
+    {
+        "src": "Healthcare and Medical (online) (4)_9.jpg",
+        "tags": []
+    }
   // আপনার সমস্ত ছবির তথ্য এখানে যুক্ত করুন
 ];
 
