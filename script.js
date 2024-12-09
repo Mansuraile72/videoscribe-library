@@ -11,26 +11,32 @@ const images = [
 // গ্যালারি তৈরি করার ফাংশন
 function displayImages(filterTags = []) {
   const gallery = document.getElementById("image-gallery");
-  gallery.innerHTML = ""; // পুরানো ইমেজ মুছে ফেলুন
+  gallery.innerHTML = ""; // पुरानी इमेज हटाएं
 
   images.forEach((image) => {
-    // ফিল্টার ট্যাগ চেক করুন
-    if (filterTags.length === 0 || filterTags.some(tag => image.tags.includes(tag))) {
+    // टैग्स को लोअरकेस में चेक करें
+    const lowerCaseTags = image.tags.map(tag => tag.toLowerCase());
+    const lowerCaseFilterTags = filterTags.map(tag => tag.toLowerCase());
+
+    if (
+      lowerCaseFilterTags.length === 0 ||
+      lowerCaseFilterTags.some(tag => lowerCaseTags.includes(tag))
+    ) {
       const imgElement = document.createElement("img");
-      imgElement.src = image.src; // ইমেজ সোর্স
-      imgElement.alt = "Image"; // অল্ট টেক্সট
+      imgElement.src = image.src;
+      imgElement.alt = "Image"; // alt टेक्स्ट
       imgElement.classList.add('resizable');
       gallery.appendChild(imgElement);
     }
   });
 }
 
-// কীওয়ার্ড বাটনের ক্লিক ইভেন্ট
 function filterImages(tag) {
-  displayImages([tag]); // নির্দিষ্ট ট্যাগ দিয়ে ইমেজ ফিল্টার করুন
+  console.log("Filtering for tag:", tag);
+  displayImages([tag]);
 }
 
-// ডিফল্টভাবে সব ইমেজ দেখান
+// डिफॉल्ट सभी इमेज दिखाएं
 displayImages();
 
 // সাইজ পরিবর্তনের ফাংশন
