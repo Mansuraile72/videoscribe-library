@@ -577,68 +577,47 @@ const images = [
 {"src":"images/People Emotions (online) (9)_9.jpg","tags":["Looking","Front","People1","Thinking","Confused","Loser","Sitting","Boy"]},
   // আরও ইমেজ যোগ করুন
 ];
-// পেজিনেশন যুক্ত করে ইমেজ ডিসপ্লে ফাংশন
-function displayImagesWithPagination(filterTags = [], page = 1) {
-  const gallery = document.getElementById("image-gallery");
-  gallery.innerHTML = ""; // পুরানো ইমেজ মুছে ফেলুন
+let selectedTags = []; // चुने हुए कीवर्ड स्टोर करने के लिए
 
-  // ফিল্টার ইমেজ সংগ্রহ
+// गैलरी अपडेट करने का फंक्शन
+function displayImagesWithMultipleTags() {
+  const gallery = document.getElementById("image-gallery");
+  gallery.innerHTML = ""; // पुरानी इमेज हटाएं
+
+  // अगर कोई कीवर्ड नहीं चुना गया है, तो सभी इमेज दिखाएं
   const filteredImages = images.filter(image =>
-    filterTags.length === 0 || filterTags.every(tag => image.tags.includes(tag))
+    selectedTags.length === 0 || selectedTags.every(tag => image.tags.includes(tag))
   );
 
-  // পেজ অনুযায়ী ইমেজ দেখান
-  const startIndex = (page - 1) * imagesPerPage;
-  const endIndex = Math.min(startIndex + imagesPerPage, filteredImages.length);
-  const imagesToShow = filteredImages.slice(startIndex, endIndex);
-
-  imagesToShow.forEach((image) => {
+  // इमेज गैलरी में जोड़े
+  filteredImages.forEach((image) => {
     const imgElement = document.createElement("img");
     imgElement.src = image.src;
     imgElement.alt = "Image";
     imgElement.classList.add('resizable');
     gallery.appendChild(imgElement);
   });
-
-  // পেজিনেশন বাটন তৈরি করুন
-  const paginationControls = document.createElement("div");
-  paginationControls.className = "pagination-controls";
-
-  if (page > 1) {
-    const prevButton = document.createElement("button");
-    prevButton.textContent = "Previous";
-    prevButton.onclick = () => displayImagesWithPagination(filterTags, page - 1);
-    paginationControls.appendChild(prevButton);
-  }
-
-  if (endIndex < filteredImages.length) {
-    const nextButton = document.createElement("button");
-    nextButton.textContent = "Next";
-    nextButton.onclick = () => displayImagesWithPagination(filterTags, page + 1);
-    paginationControls.appendChild(nextButton);
-  }
-
-  gallery.appendChild(paginationControls);
 }
 
-// মাল্টিপল কিওয়ার্ড সিলেকশন সাপোর্ট
+// कीवर्ड सेलेक्शन को हैंडल करने का फंक्शन
 function toggleTag(tag) {
   if (selectedTags.includes(tag)) {
-    selectedTags = selectedTags.filter(t => t !== tag); // ট্যাগ রিমুভ করুন
+    // अगर टैग पहले से चुना गया है, तो उसे हटाएं
+    selectedTags = selectedTags.filter(t => t !== tag);
   } else {
-    selectedTags.push(tag); // নতুন ট্যাগ যোগ করুন
+    // टैग को सेलेक्शन में जोड़ें
+    selectedTags.push(tag);
   }
-  displayImagesWithPagination(selectedTags); // সিলেক্টেড ট্যাগ অনুযায়ী ইমেজ দেখান
+
+  // अपडेटेड सेलेक्शन के आधार पर इमेज दिखाएं
+  displayImagesWithMultipleTags();
 }
 
-// বাটন ক্লিক ইভেন্ট
+// बटन के क्लिक इवेंट से जोड़ें
 function filterImages(tag) {
-  toggleTag(tag); // সিলেকশন টগল করুন
+  toggleTag(tag); // टैग को टॉगल करें
 }
 
-// ডিফল্টভাবে সব ইমেজ দেখান
-displayImagesWithPagination();
+// डिफ़ॉल्ट सभी इमेज दिखाएं
+displayImagesWithMultipleTags();
 
-
-// ডিফল্টভাবে সব ইমেজ দেখান
-displayImagesWithPagination();
