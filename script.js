@@ -1,4 +1,6 @@
-// ইমেজ ডেটা
+let currentPage = 1; // বর্তমান পেজ
+const imagesPerPage = 500; // প্রতি পেজে কত ছবি দেখানো হবে
+let selectedTags = []; // নির্বাচিত ট্যাগগুলি সংরক্ষণ করবে
 const images = [
 {"src":"images/People at Work (online) (11)_16.jpg","tags":["Looking","Computer","Relaxed","Sitting","Boy","Talking","Girl","Enjoy","People∞"]},
 {"src":"images/People at Work (online) (11)_17.jpg","tags":["Looking","Front","Boy","Girl","Happy","People∞"]},
@@ -575,60 +577,13 @@ const images = [
 {"src":"images/People Emotions (online) (9)_9.jpg","tags":["Looking","Front","People1","Thinking","Confused","Loser","Sitting","Boy"]},
   // আরও ইমেজ যোগ করুন
 ];
-// গ্যালারি তৈরি করার ফাংশন
-function displayImages(filterTags = []) {
-  const gallery = document.getElementById("image-gallery");
-  gallery.innerHTML = ""; // पुरानी इमेज हटाएं
-
-  images.forEach((image) => {
-    // टैग्स को लोअरकेस में चेक करें
-    const lowerCaseTags = image.tags.map(tag => tag.toLowerCase());
-    const lowerCaseFilterTags = filterTags.map(tag => tag.toLowerCase());
-
-    if (
-      lowerCaseFilterTags.length === 0 ||
-      lowerCaseFilterTags.some(tag => lowerCaseTags.includes(tag))
-    ) {
-      const imgElement = document.createElement("img");
-      imgElement.src = image.src;
-      imgElement.alt = "Image"; // alt टेक्स्ट
-      imgElement.classList.add('resizable');
-      gallery.appendChild(imgElement);
-    }
-  });
-}
-
-function filterImages(tag) {
-  console.log("Filtering for tag:", tag);
-  displayImages([tag]);
-}
-
-// डिफॉल्ट सभी इमेज दिखाएं
-displayImages();
-
-// সাইজ পরিবর্তনের ফাংশন
-function resizeImages(size) {
-  const images = document.querySelectorAll("#image-gallery img");
-  images.forEach(img => {
-    img.style.width = `${size}px`; // ইমেজের প্রস্থ পরিবর্তন করুন
-  });
-}
-
-// স্লাইডার ইভেন্ট লিসেনার যোগ করুন
-document.getElementById("size-slider").addEventListener("input", function () {
-  resizeImages(this.value);
-});
-
-let currentPage = 1; // বর্তমান পেজ
-const imagesPerPage = 500; // প্রতি পেজে কত ছবি দেখানো হবে
-
 // পেজিনেশন যুক্ত করে ইমেজ ডিসপ্লে ফাংশন
 function displayImagesWithPagination(filterTags = [], page = 1) {
   const gallery = document.getElementById("image-gallery");
   gallery.innerHTML = ""; // পুরানো ইমেজ মুছে ফেলুন
 
   // ফিল্টার ইমেজ সংগ্রহ
-  const filteredImages = images.filter(image => 
+  const filteredImages = images.filter(image =>
     filterTags.length === 0 || filterTags.every(tag => image.tags.includes(tag))
   );
 
@@ -665,6 +620,25 @@ function displayImagesWithPagination(filterTags = [], page = 1) {
 
   gallery.appendChild(paginationControls);
 }
+
+// মাল্টিপল কিওয়ার্ড সিলেকশন সাপোর্ট
+function toggleTag(tag) {
+  if (selectedTags.includes(tag)) {
+    selectedTags = selectedTags.filter(t => t !== tag); // ট্যাগ রিমুভ করুন
+  } else {
+    selectedTags.push(tag); // নতুন ট্যাগ যোগ করুন
+  }
+  displayImagesWithPagination(selectedTags); // সিলেক্টেড ট্যাগ অনুযায়ী ইমেজ দেখান
+}
+
+// বাটন ক্লিক ইভেন্ট
+function filterImages(tag) {
+  toggleTag(tag); // সিলেকশন টগল করুন
+}
+
+// ডিফল্টভাবে সব ইমেজ দেখান
+displayImagesWithPagination();
+
 
 // ডিফল্টভাবে সব ইমেজ দেখান
 displayImagesWithPagination();
