@@ -13,11 +13,10 @@ function displayImages(filterTags = []) {
   gallery.innerHTML = ""; // पुरानी इमेज हटाएँ
 
   images.forEach((image) => {
-    // अगर कोई फिल्टर टैग है तो उसे चेक करें
     if (filterTags.length === 0 || filterTags.some(tag => image.tags.includes(tag))) {
       const imgElement = document.createElement("img");
-      imgElement.src = image.src; // इमेज सोर्स
-      imgElement.alt = "Image"; // ऑल्ट टेक्स्ट
+      imgElement.src = image.src;
+      imgElement.alt = "Image";
       imgElement.classList.add('resizable');
       gallery.appendChild(imgElement);
     }
@@ -26,25 +25,16 @@ function displayImages(filterTags = []) {
 
 // इमेज का साइज बदलने का फंक्शन
 function resizeImages(size) {
-  // गैलरी में सभी इमेज सेलेक्ट करें
   const images = document.querySelectorAll("#image-gallery img");
   images.forEach(img => {
     img.style.width = `${size}px`; // इमेज की चौड़ाई सेट करें
   });
 }
 
-// कीवर्ड बटन पर क्लिक इवेंट
-function filterImages(tag) {
-  const currentTags = new Set();
-  currentTags.add(tag); // टैग जोड़ें
-  displayImages([...currentTags]);
-}
-
-// गैलरी डिफॉल्ट दिखाएँ
-displayImages();
-
-// साइज स्लाइडर को इवेंट लिसनर से जोड़ें
+// इवेंट लिसनर जोड़ें
 document.getElementById("size-slider").addEventListener("input", function () {
-  const newSize = this.value;
-  resizeImages(newSize); // स्लाइडर के वैल्यू के अनुसार साइज बदलें
+  resizeImages(this.value);
 });
+
+// डिफॉल्ट इमेज गैलरी दिखाएँ
+displayImages();
