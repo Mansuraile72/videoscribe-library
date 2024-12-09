@@ -21,6 +21,13 @@ header {
 .keywords button:hover {
   background-color: #777;
 }
+.size-control {
+  margin-top: 10px;
+}
+.size-control label {
+  color: #fff;
+  margin-right: 10px;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +36,7 @@ header {
 }
 .gallery img {
   margin: 10px;
-  width: 150px;
+  width: 150px; /* ডিফল্ট সাইজ */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 5px;
