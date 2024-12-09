@@ -1,53 +1,36 @@
-/* সাধারণ বডি স্টাইল */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
 }
-
-/* হেডারের জন্য */
 header {
   background-color: #333;
   color: #fff;
   padding: 10px;
   text-align: center;
 }
-
-/* কীওয়ার্ড বাটনের জন্য */
 .keywords button {
   margin: 5px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   background-color: #555;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
-} t
-
+}
 .keywords button:hover {
   background-color: #777;
 }
-
-/* গ্যালারি স্টাইল */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 15px;
+  padding: 10px;
 }
-
 .gallery img {
-  width: 200px;
+  margin: 10px;
+  width: 150px;
   height: auto;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: transform 0.2s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  border-color: #aaa;
+  border-radius: 5px;
 }
