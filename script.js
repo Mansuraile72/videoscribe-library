@@ -619,27 +619,6 @@ document.getElementById("size-slider").addEventListener("input", function () {
   resizeImages(this.value);
 });
 
-let selectedTags = []; // নির্বাচিত ট্যাগগুলি সংরক্ষণ করবে
-
-// মাল্টিপল কিওয়ার্ড সিলেকশন সাপোর্ট
-function toggleTag(tag) {
-  if (selectedTags.includes(tag)) {
-    selectedTags = selectedTags.filter(t => t !== tag); // ট্যাগ রিমুভ করুন
-  } else {
-    selectedTags.push(tag); // নতুন ট্যাগ যোগ করুন
-  }
-  displayImagesWithPagination(selectedTags); // সিলেক্টেড ট্যাগ অনুযায়ী ইমেজ দেখান
-}
-
-// বাটন ক্লিক ইভেন্ট
-function filterImages(tag) {
-  toggleTag(tag); // সিলেকশন টগল করুন
-}
-
-// ডিফল্টভাবে সব ইমেজ দেখান
-displayImagesWithPagination();
-
-
 let currentPage = 1; // বর্তমান পেজ
 const imagesPerPage = 500; // প্রতি পেজে কত ছবি দেখানো হবে
 
