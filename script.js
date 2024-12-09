@@ -618,3 +618,54 @@ function resizeImages(size) {
 document.getElementById("size-slider").addEventListener("input", function () {
   resizeImages(this.value);
 });
+
+
+let currentPage = 1; // বর্তমান পেজ
+const imagesPerPage = 500; // প্রতি পেজে কত ছবি দেখানো হবে
+
+// পেজিনেশন যুক্ত করে ইমেজ ডিসপ্লে ফাংশন
+function displayImagesWithPagination(filterTags = [], page = 1) {
+  const gallery = document.getElementById("image-gallery");
+  gallery.innerHTML = ""; // পুরানো ইমেজ মুছে ফেলুন
+
+  // ফিল্টার ইমেজ সংগ্রহ
+  const filteredImages = images.filter(image => 
+    filterTags.length === 0 || filterTags.every(tag => image.tags.includes(tag))
+  );
+
+  // পেজ অনুযায়ী ইমেজ দেখান
+  const startIndex = (page - 1) * imagesPerPage;
+  const endIndex = Math.min(startIndex + imagesPerPage, filteredImages.length);
+  const imagesToShow = filteredImages.slice(startIndex, endIndex);
+
+  imagesToShow.forEach((image) => {
+    const imgElement = document.createElement("img");
+    imgElement.src = image.src;
+    imgElement.alt = "Image";
+    imgElement.classList.add('resizable');
+    gallery.appendChild(imgElement);
+  });
+
+  // পেজিনেশন বাটন তৈরি করুন
+  const paginationControls = document.createElement("div");
+  paginationControls.className = "pagination-controls";
+
+  if (page > 1) {
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "Previous";
+    prevButton.onclick = () => displayImagesWithPagination(filterTags, page - 1);
+    paginationControls.appendChild(prevButton);
+  }
+
+  if (endIndex < filteredImages.length) {
+    const nextButton = document.createElement("button");
+    nextButton.textContent = "Next";
+    nextButton.onclick = () => displayImagesWithPagination(filterTags, page + 1);
+    paginationControls.appendChild(nextButton);
+  }
+
+  gallery.appendChild(paginationControls);
+}
+
+// ডিফল্টভাবে সব ইমেজ দেখান
+displayImagesWithPagination();
