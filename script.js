@@ -26,7 +26,8 @@ function displayImages(filterTags = []) {
 
 // इमेज का साइज बदलने का फंक्शन
 function resizeImages(size) {
-  const images = document.querySelectorAll(".gallery img"); // सभी इमेजेस सेलेक्ट करें
+  // गैलरी में सभी इमेज सेलेक्ट करें
+  const images = document.querySelectorAll("#image-gallery img");
   images.forEach(img => {
     img.style.width = `${size}px`; // इमेज की चौड़ाई सेट करें
   });
@@ -39,10 +40,11 @@ function filterImages(tag) {
   displayImages([...currentTags]);
 }
 
-// डिफ़ॉल्ट रूप से सभी इमेजेस दिखाएँ
+// गैलरी डिफॉल्ट दिखाएँ
 displayImages();
 
-// साइज स्लाइडर को जोड़ें
+// साइज स्लाइडर को इवेंट लिसनर से जोड़ें
 document.getElementById("size-slider").addEventListener("input", function () {
-  resizeImages(this.value); // स्लाइडर के वैल्यू के अनुसार साइज बदलें
+  const newSize = this.value;
+  resizeImages(newSize); // स्लाइडर के वैल्यू के अनुसार साइज बदलें
 });
