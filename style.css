@@ -51,7 +51,7 @@ header {
   margin: 0 10px;
   padding: 10px 20px;
   background-color: #555;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -59,4 +59,9 @@ header {
 
 .pagination-controls button:hover {
   background-color: #777;
+}
+
+.keywords button.selected {
+  background-color: #007bff;
+  color: white;
 }
