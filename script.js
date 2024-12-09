@@ -1,98 +1,11 @@
 // ইমেজ ডেটা
 const images = [
-  { src: "images/1 (10).jpg", tags: ["Sleep", "boy"]},
-  {
-    "src": "images/1 (11).jpg",
-    "tags": [
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (12).jpg",
-    "tags": [
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (13).jpg",
-    "tags": [
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (14).jpg",
-    "tags": [
-      "boy",
-      "money"
-    ]
-  },
-  {
-    "src": "images/1 (15).jpg",
-    "tags": [
-      "girl"
-    ]
-  },
-  {
-    "src": "images/1 (5).jpg",
-    "tags": [
-      "girl"
-    ]
-  },
-  {
-    "src": "images/1 (6).jpg",
-    "tags": [
-      "girl",
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (7).jpg",
-    "tags": [
-      "girl",
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (8).jpg",
-    "tags": [
-      "girl",
-      "boy"
-    ]
-  },
-  {
-    "src": "images/1 (9).jpg",
-    "tags": [
-      "girl"
-    ]
-  },
-  {
-    "src": "images/d.jpg",
-    "tags": [
-      "boy"
-    ]
-  },
-  {
-    "src": "images/g.jpg",
-    "tags": [
-      "girl"
-    ]
-  },
-  {
-    "src": "images/h.jpg",
-    "tags": [
-      "boy"
-    ]
-  },
-  {
-    "src": "images/Healthcare14.jpg",
-    "tags": []
-  },
-  {
-    "src": "images/q.jpg",
-    "tags": [
-      "girl"
-    ]
-  }
+  { src: "images/d.jpg", tags: ["Sleep", "Medical"] },
+  { src: "images/g.jpg", tags: ["Thinking", "Family"] },
+  { src: "images/q.jpg", tags: ["People", "Work"] },
+  { src: "images/h.jpg", tags: ["Home", "Family"] },
+  { src: "images/1 (15).jpg", tags: ["Home", "Family"] },
+  { src: "images/Healthcare14.jpg", tags: ["People", "Work"] },
   // আরও ইমেজ যোগ করুন
 ];
 
