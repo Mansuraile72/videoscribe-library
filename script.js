@@ -1,7 +1,7 @@
 // इमेज डेटा
 const images = [
-  { src: "images/Healthcare and Medical (online) (3)_6 - Copy.jpg", tags: ["Healthcare", "Medical"] },
-  { src: "images/Home and Family (online) (2)_7 - Copy.jpg", tags: ["Home", "Family"] },
+  { src: "images/Healthcare and Medical1.jpg", tags: ["Healthcare", "Medical"] },
+  { src: "images/Home.jpg", tags: ["Home", "Family"] },
   { src: "images/People at Work (online) (5)_17 - Copy.jpg", tags: ["People", "Work"] },
   // यहां अन्य इमेज पाथ जोड़ें
 ];
