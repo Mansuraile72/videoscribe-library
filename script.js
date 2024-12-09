@@ -624,6 +624,20 @@ function displayImagesWithPagination() {
   gallery.appendChild(paginationControls);
 }
 
+// ইমেজ সাইজ পরিবর্তন করার ফাংশন
+function resizeImages(size) {
+  const images = document.querySelectorAll("#image-gallery img"); // সব ইমেজ নির্বাচন করুন
+  images.forEach(img => {
+    img.style.width = `${size}px`; // ইমেজের প্রস্থ পরিবর্তন
+  });
+}
+
+// স্লাইডার ইভেন্ট লিসেনার যোগ করুন
+document.getElementById("size-slider").addEventListener("input", function () {
+  resizeImages(this.value); // স্লাইডারের মান অনুযায়ী ইমেজ সাইজ পরিবর্তন
+});
+
+
 // মাল্টিপল কিওয়ার্ড সিলেকশন সাপোর্ট
 function toggleTag(tag) {
   const button = document.querySelector(`button[data-tag="${tag}"]`);
