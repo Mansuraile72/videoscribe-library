@@ -1,7 +1,7 @@
 // ইমেজ ডেটা
 const images = [
-  { src: "images/d.jpg", tags: ["Healthcare", "Medical"] },
-  { src: "images/g.jpg", tags: ["Home", "Family"] },
+  { src: "images/d.jpg", tags: ["Sleep", "Medical"] },
+  { src: "images/g.jpg", tags: ["Thinking", "Family"] },
   { src: "images/q.jpg", tags: ["People", "Work"] },
   { src: "images/h.jpg", tags: ["Home", "Family"] },
   // আরও ইমেজ যোগ করুন
