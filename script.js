@@ -1,6 +1,6 @@
 // ইমেজ ডেটা
 const images = [
-  [
+  
   {"src":"images/1 (10).jpg","tags":["girl","boy"]},
   {"src":"images/1 (11).jpg","tags":["boy"]},
   {"src":"images/1 (12).jpg","tags":["boy"]},
@@ -17,7 +17,6 @@ const images = [
   {"src":"images/h.jpg","tags":["boy"]},
   {"src":"images/Healthcare14.jpg","tags":[]},
   {"src":"images/q.jpg","tags":["girl"]}
-]
 
   // আরও ইমেজ যোগ করুন
 ];
