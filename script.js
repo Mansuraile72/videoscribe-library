@@ -621,3 +621,16 @@ function filterImages(tag) {
 // डिफ़ॉल्ट सभी इमेज दिखाएं
 displayImagesWithMultipleTags();
 
+function toggleTag(tag) {
+  const button = document.querySelector(`button[onclick="filterImages('${tag}')"]`);
+
+  if (selectedTags.includes(tag)) {
+    selectedTags = selectedTags.filter(t => t !== tag);
+    button.classList.remove("selected");
+  } else {
+    selectedTags.push(tag);
+    button.classList.add("selected");
+  }
+
+  displayImagesWithMultipleTags();
+}
