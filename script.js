@@ -582,12 +582,10 @@ function displayImagesWithPagination() {
   const gallery = document.getElementById("image-gallery");
   gallery.innerHTML = ""; // পুরানো ইমেজ মুছে ফেলুন
 
-  // ফিল্টার ইমেজ সংগ্রহ
   const filteredImages = images.filter(image =>
     selectedTags.length === 0 || selectedTags.every(tag => image.tags.includes(tag))
   );
 
-  // পেজ অনুযায়ী ইমেজ দেখান
   const startIndex = (currentPage - 1) * imagesPerPage;
   const endIndex = Math.min(startIndex + imagesPerPage, filteredImages.length);
   const imagesToShow = filteredImages.slice(startIndex, endIndex);
@@ -600,7 +598,6 @@ function displayImagesWithPagination() {
     gallery.appendChild(imgElement);
   });
 
-  // পেজিনেশন বাটন তৈরি করুন
   const paginationControls = document.createElement("div");
   paginationControls.className = "pagination-controls";
 
@@ -629,15 +626,18 @@ function displayImagesWithPagination() {
 
 // মাল্টিপল কিওয়ার্ড সিলেকশন সাপোর্ট
 function toggleTag(tag) {
+  const button = document.querySelector(`button[data-tag="${tag}"]`);
+
   if (selectedTags.includes(tag)) {
     // যদি ট্যাগ ইতিমধ্যে আছে, তাহলে তা সরান
     selectedTags = selectedTags.filter(t => t !== tag);
+    button.classList.remove("selected"); // বাটন থেকে ক্লাস সরান
   } else {
     // নতুন ট্যাগ যোগ করুন
     selectedTags.push(tag);
+    button.classList.add("selected"); // বাটনে ক্লাস যোগ করুন
   }
 
-  // ট্যাগ পরিবর্তনের পরে গ্যালারি আপডেট করুন
   currentPage = 1; // নতুন ট্যাগ সিলেক্ট হলে প্রথম পেজে যান
   displayImagesWithPagination();
 }
@@ -646,6 +646,10 @@ function toggleTag(tag) {
 function filterImages(tag) {
   toggleTag(tag); // ট্যাগকে টগল করুন
 }
+
+// ডিফল্টভাবে সব ইমেজ দেখান
+displayImagesWithPagination();
+
 
 // ডিফল্টভাবে সব ইমেজ দেখান
 displayImagesWithPagination();
