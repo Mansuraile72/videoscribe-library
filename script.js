@@ -4,6 +4,7 @@ const images = [
   { src: "images/g.jpg", tags: ["Thinking", "Family"] },
   { src: "images/q.jpg", tags: ["People", "Work"] },
   { src: "images/h.jpg", tags: ["Home", "Family"] },
+  { src: "images/Healthcare and Medical (online) (2)_14.jpg", tags: ["People", "Work"] },
   // अन्य इमेजेस जोड़ें
 ];
 
