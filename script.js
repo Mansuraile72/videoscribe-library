@@ -1,7 +1,7 @@
 // ইমেজ ডেটা
 const images = [
   { src: "images/d.jpg", tags: ["Sleep", "girl"] },
-  { src: "images/g.jpg", tags: ["Thinking", "Family"] },
+  { src: "images/g.jpg", tags: ["Baby", "Family"] },
   { src: "images/q.jpg", tags: ["People", "boy"] },
   { src: "images/h.jpg", tags: ["Home", "boy"] },
   { src: "images/1 (15).jpg", tags: ["girl", "Family"] },
