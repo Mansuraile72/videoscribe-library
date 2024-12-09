@@ -18,8 +18,17 @@ function displayImages(filterTags = []) {
       const imgElement = document.createElement("img");
       imgElement.src = image.src; // ইমেজ সোর্স
       imgElement.alt = "Image"; // অল্ট টেক্সট
+      imgElement.classList.add('resizable');
       gallery.appendChild(imgElement);
     }
+  });
+}
+
+// ইমেজ সাইজ পরিবর্তন করার ফাংশন
+function resizeImages(size) {
+  const images = document.querySelectorAll(".gallery img");
+  images.forEach(img => {
+    img.style.width = `${size}px`;
   });
 }
 
