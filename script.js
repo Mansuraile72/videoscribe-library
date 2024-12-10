@@ -1154,8 +1154,7 @@ const images = [
 {"src":"images/Toys and Games (online) (2)_7.webp","tags":["Looking","Side‍","People1","Surprising","Working","Sitting","Talking","Girl"]},
 {"src":"images/Toys and Games (online) (2)_8.webp","tags":["Side‍","Back","People1","Computer","Working","Sitting","Boy"]},
 {"src":"images/Toys and Games (online) (2)_9.webp","tags":["Side‍","Back","People1","Computer","Working","Sitting","Boy"]},
-
-  // আরও ইমেজ যোগ করুন
+// আরও ইমেজ যোগ করুন
 ];
 // পেজিনেশন যুক্ত করে ইমেজ ডিসপ্লে ফাংশন
 function displayImagesWithPagination() {
