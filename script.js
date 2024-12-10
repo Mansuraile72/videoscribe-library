@@ -1,5 +1,5 @@
 let currentPage = 1; // বর্তমান পেজ
-const imagesPerPage = 500; // প্রতি পেজে কত ছবি দেখানো হবে
+const imagesPerPage = 1500; // প্রতি পেজে কত ছবি দেখানো হবে
 let selectedTags = []; // নির্বাচিত ট্যাগগুলি সংরক্ষণ করবে
 const images = [
 {"src":"images/People at Work (online) (11)_16.webp","tags":["Looking","Computer","Relaxed","Sitting","Boy","Talking","Girl","Enjoy","People∞"]},
