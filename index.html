@@ -44,6 +44,21 @@
 <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
 <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
 
+
+      <!-- ভাসমান বাটন -->
+<div id="floating-button">
+  <button onclick="showLibraryInfo()">📖 Library Info</button>
+</div>
+
+<!-- পপআপ দেখানোর জন্য -->
+<div id="popup" class="hidden">
+  <div class="popup-content">
+    <img src="images/library-info.jpg" alt="Library Information" />
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+
       <!-- আরও বাটন যোগ করুন -->
     </div>
     <div class="size-control">
