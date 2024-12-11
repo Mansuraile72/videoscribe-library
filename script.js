@@ -1741,8 +1741,17 @@ function filterImages(tag) {
   toggleTag(tag); // ট্যাগকে টগল করুন
 }
 
-// ডিফল্টভাবে সব ইমেজ দেখান
-displayImagesWithPagination();
+// পপআপ দেখানোর ফাংশন
+function showLibraryInfo() {
+  const popup = document.getElementById("popup");
+  popup.classList.remove("hidden"); // পপআপ দেখান
+}
+
+// পপআপ বন্ধ করার ফাংশন
+function closePopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.add("hidden"); // পপআপ লুকান
+}
 
 
 // ডিফল্টভাবে সব ইমেজ দেখান
