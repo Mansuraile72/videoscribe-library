@@ -43,9 +43,14 @@
 <button data-tag="Searching" onclick="filterImages('Searching')">Searching 🔍</button>
 <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
 <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
+  <!-- আরও বাটন যোগ করুন -->
+    </div>
+    <div class="size-control">
+      <label for="size-slider">Image Size:</label>
+      <input type="range" id="size-slider" min="100" max="500" value="150" />
+    </div>
 
-
-      <!-- ভাসমান বাটন -->
+          <!-- ভাসমান বাটন -->
 <div id="floating-button">
   <button onclick="showLibraryInfo()">📖 Library Info</button>
 </div>
@@ -59,12 +64,6 @@
 </div>
 
 
-      <!-- আরও বাটন যোগ করুন -->
-    </div>
-    <div class="size-control">
-      <label for="size-slider">Image Size:</label>
-      <input type="range" id="size-slider" min="100" max="500" value="150" />
-    </div>
   </header>
   <main>
     <div id="image-gallery" class="gallery">
