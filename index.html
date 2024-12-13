@@ -4,16 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mansur Videoscribe Library</title>
+  <!-- Favicon जोड़ने के लिए लिंक -->
+  <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NW70EQQY72"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NW70EQQY72');
-  </script>
 </head>
 <body>
   <header>
@@ -52,20 +45,18 @@
       <button data-tag="Searching" onclick="filterImages('Searching')">Searching 🔍</button>
       <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
       <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
-      <!-- আরও বাটন যোগ করুন -->
     </div>
     <div class="size-control">
       <label for="size-slider">Image Size:</label>
       <input type="range" id="size-slider" min="100" max="500" value="150" />
     </div>
 
-    <!-- ভাসমান বাটন -->
+    <!-- फ्लोटिंग बटन -->
     <div id="floating-button">
       <button onclick="showLibraryInfo()">📖 Library Info</button>
     </div>
-    <link rel="icon" href="favicon.ico" type="image/favicon.png">
 
-    <!-- পপআপ দেখানোর জন্য -->
+    <!-- पॉपअप -->
     <div id="popup" class="hidden">
       <div class="popup-content">
         <img src="images/library-info.jpg" alt="Library Information" />
@@ -75,7 +66,7 @@
   </header>
   <main>
     <div id="image-gallery" class="gallery">
-      <!-- ছবি এখানে দেখানো হবে -->
+      <!-- गैलरी इमेजेस -->
     </div>
   </main>
   <script src="script.js"></script>
