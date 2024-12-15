@@ -14,7 +14,7 @@
       <button data-tag="Angry" onclick="filterImages('Angry')">Angry 😡</button>
       <button data-tag="Cry" onclick="filterImages('Cry')">Cry 😭</button>
       <button data-tag="Sleep" onclick="filterImages('Sleep')">Sleep 😴</button>
-      <button data-tag="Enjoy" onclick="filterImages('Enjoy')">Enjoy 🥳</button>
+	  <button data-tag="Enjoy" onclick="filterImages('Enjoy')">Enjoy 🥳</button>
       <button data-tag="Money" onclick="filterImages('Money')">Money 💰</button>
       <button data-tag="Travel" onclick="filterImages('Travel')">Travel ✈</button>
       <button data-tag="Girl" onclick="filterImages('Girl')">Girl 👧</button>
@@ -44,16 +44,15 @@
       <button data-tag="Searching" onclick="filterImages('Searching')">Searching 🔍</button>
       <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
       <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
+      <!-- अन्य बटन भी यहां होंगे -->
     </div>
     <div class="size-control">
       <label for="size-slider">Image Size:</label>
       <input type="range" id="size-slider" min="100" max="500" value="150" />
     </div>
-
     <div id="floating-button">
       <button onclick="showLibraryInfo()">📖 Library Info</button>
     </div>
-
     <div id="popup" class="hidden">
       <div class="popup-content">
         <img src="images/library-info.jpg" alt="Library Information" />
@@ -62,10 +61,12 @@
     </div>
   </header>
   <main>
-    <div id="image-gallery" class="gallery">
-      <!-- JavaScript से Lazy Loading Images यहां जोड़ी जाएंगी -->
-    </div>
+    <!-- Lazy Loading के लिए गैलरी -->
+    <div id="image-gallery" class="gallery"></div>
   </main>
+  <!-- पुराने JavaScript फाइल -->
   <script src="script.js"></script>
+  <!-- नया Lazy Loading फाइल -->
+  <script src="lazyload.js"></script>
 </body>
 </html>
