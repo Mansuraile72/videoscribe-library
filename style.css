@@ -137,3 +137,13 @@ header {
 .popup-content button:hover {
   background-color: #0056b3;
 }
+
+/* Lazy Loading के लिए नई क्लास */
+.lazy {
+  opacity: 0; /* इमेज शुरू में अदृश्य होगी */
+  transition: opacity 0.5s ease-in-out; /* लोड होने के बाद धीमे से दिखेगी */
+}
+
+.lazy.loaded {
+  opacity: 1; /* लोड होने के बाद इमेज पूरी तरह दिखेगी */
+}
