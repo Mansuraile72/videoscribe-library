@@ -3,13 +3,16 @@ const imagesPerPage = 20; // प्रति पेज कितनी इमे
 
 // सभी इमेजेस डेटा
 const images = [
-  {"src":"images/People at Work (online) (11)_16.webp","tags":["Looking","Computer","Relaxed","Sitting","Boy","Talking","Girl","Enjoy","People∞"]},
-  {"src":"images/People at Work (online) (11)_17.webp","tags":["Looking","Front","Boy","Girl","Happy","People∞"]},
+  {"src": "images/People at Work (online) (11)_16.webp", "tags": ["Looking", "Computer", "Relaxed", "Sitting", "Boy", "Talking", "Girl", "Enjoy", "People∞"]},
+  {"src": "images/People at Work (online) (11)_17.webp", "tags": ["Looking", "Front", "Boy", "Girl", "Happy", "People∞"]},
   // यहां आपकी बाकी इमेज डेटा
 ];
 
 // गैलरी कंटेनर का चयन करें
 const gallery = document.getElementById("image-gallery");
+
+// Placeholder इमेज (Fallback)
+const placeholderSrc = "images/placeholder.png";
 
 // इमेजेस रेंडर करने का फ़ंक्शन
 function renderImages() {
@@ -18,20 +21,32 @@ function renderImages() {
 
   const currentImages = images.slice(start, end);
 
+  // Document Fragment का उपयोग करें
+  const fragment = document.createDocumentFragment();
+
   currentImages.forEach(image => {
     const img = document.createElement("img");
     img.dataset.src = image.src; // Lazy Loading के लिए data-src का उपयोग
+    img.src = placeholderSrc; // Placeholder इमेज
     img.classList.add("lazy");
     img.alt = "Gallery Image";
-    gallery.appendChild(img);
+
+    // Error Handling: इमेज लोड न हो तो Fallback इमेज दिखाएं
+    img.onerror = () => {
+      img.src = placeholderSrc;
+    };
+
+    fragment.appendChild(img);
   });
+
+  gallery.appendChild(fragment);
 
   enableLazyLoading(); // हर बार नई इमेज जोड़ने के बाद Lazy Loading चालू करें
 }
 
 // Lazy Loading इनेबल करने का फ़ंक्शन
 function enableLazyLoading() {
-  const lazyImages = document.querySelectorAll("img.lazy");
+  const lazyImages = document.querySelectorAll("img.lazy:not(.loaded)");
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, observer) => {
@@ -55,14 +70,22 @@ function enableLazyLoading() {
   }
 }
 
-// जब यूजर नीचे स्क्रॉल करे, तो नई इमेज लोड करें
-window.addEventListener("scroll", () => {
-  const scrollPosition = window.innerHeight + window.pageYOffset;
-  const galleryHeight = gallery.offsetHeight;
+// स्क्रॉलिंग के लिए थ्रॉटलिंग
+let isScrolling = false;
 
-  if (scrollPosition >= galleryHeight) {
-    currentPage++;
-    renderImages();
+window.addEventListener("scroll", () => {
+  if (!isScrolling) {
+    isScrolling = true;
+    setTimeout(() => {
+      const scrollPosition = window.innerHeight + window.pageYOffset;
+      const galleryHeight = gallery.offsetHeight;
+
+      if (scrollPosition >= galleryHeight) {
+        currentPage++;
+        renderImages();
+      }
+      isScrolling = false;
+    }, 200); // थ्रॉटलिंग के लिए 200ms का विलंब
   }
 });
 
