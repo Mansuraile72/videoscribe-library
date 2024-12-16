@@ -1,5 +1,5 @@
 let currentPage = 1; // वर्तमान पेज
-const imagesPerPage = 20; // प्रति पेज इमेजेस की संख्या
+const imagesPerPage = 2000; // प्रति पेज इमेजेस की संख्या
 let selectedTags = []; // चयनित टैग्स को स्टोर करने के लिए
 const images = [
   { "src": "images/People at Work (online) (11)_16.webp", "tags": ["Looking", "Computer", "Relaxed", "Sitting", "Boy", "Talking", "Girl", "Enjoy", "People∞"] },
