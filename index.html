@@ -6,6 +6,11 @@
   <title>Mansur Videoscribe Library</title>
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Explore, search, and resize VideoScribe library images with ease. Simplify video creation with keyboard shortcuts and detailed image locations.">
+  <meta name="keywords" content="VideoScribe image browser, VideoScribe library, image search, keyboard shortcuts, video creation tool, whiteboard animation, image gallery, resizing tool">
+  <meta name="author" content="Mansur Videoscribe Team">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BXYTXR07V"></script>
@@ -54,7 +59,6 @@
       <button data-tag="Searching" onclick="filterImages('Searching')">Searching 🔍</button>
       <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
       <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
-      <!-- अन्य बटन भी यहां होंगे -->
     </div>
     <div class="size-control">
       <label for="size-slider">Image Size:</label>
@@ -71,12 +75,10 @@
     </div>
   </header>
   <main>
-    <!-- Lazy Loading के लिए गैलरी -->
+    <!-- Lazy Loading गैलरी -->
     <div id="image-gallery" class="gallery"></div>
   </main>
-  <!-- पुराने JavaScript फाइल -->
-  <script src="script.js"></script>
-  <!-- नया Lazy Loading फाइल -->
-  <script src="lazyload.js"></script>
+  <script src="script.js" defer></script>
+  <script src="lazyload.js" defer></script>
 </body>
 </html>
