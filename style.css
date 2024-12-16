@@ -18,6 +18,18 @@ header {
   border-radius: 5px;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .size-control {
+    margin-top: 10px;
+  }
+}
+
+
 .keywords button:hover {
   background-color: #777;
 }
