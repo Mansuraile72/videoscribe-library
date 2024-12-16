@@ -97,6 +97,9 @@ function toggleTag(tag) {
   currentPage = 1;
   displayImagesWithPagination();
 }
+function filterImages(tag) {
+  toggleTag(tag); // टैग टॉगल करें
+}
 
 // पॉपअप दिखाना
 function showLibraryInfo() {
