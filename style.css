@@ -1,3 +1,5 @@
+
+
 /* बेसिक बॉडी स्टाइल */
 body {
   font-family: Arial, sans-serif;
@@ -41,14 +43,14 @@ header {
 
 /* साइज कंट्रोल स्टाइल */
 .size-control {
-  margin: 20px auto;
+  margin: 15px auto;
   text-align: center;
 }
 
 .size-control label {
   color: #333;
   margin-right: 10px;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
 }
 
