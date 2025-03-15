@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mansur Videoscribe Library</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Explore, search, and resize VideoScribe library images with ease. Simplify video creation with keyboard shortcuts and detailed image locations.">
+  <meta name="keywords" content="VideoScribe image browser, VideoScribe library, image search, keyboard shortcuts, video creation tool, whiteboard animation, image gallery, resizing tool">
+  <meta name="author" content="Mansur Videoscribe Team">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BXYTXR07V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BXYTXR07V');
+  </script>
+  <!-- Google Analytics End -->
+</head>
+<body>
+  <header>
+    <div class="keywords">
+      <button data-tag="Happy" onclick="filterImages('Happy')">Happy 😂</button>
+      <button data-tag="Angry" onclick="filterImages('Angry')">Angry 😡</button>
+      <button data-tag="Cry" onclick="filterImages('Cry')">Cry 😭</button>
+      <button data-tag="Sleep" onclick="filterImages('Sleep')">Sleep 😴</button>
+      <button data-tag="Enjoy" onclick="filterImages('Enjoy')">Enjoy 🥳</button>
+      <button data-tag="Money" onclick="filterImages('Money')">Money 💰</button>
+      <button data-tag="Travel" onclick="filterImages('Travel')">Travel ✈</button>
+      <button data-tag="Girl" onclick="filterImages('Girl')">Girl 👧</button>
+      <button data-tag="Boy" onclick="filterImages('Boy')">Boy 👦</button>
+      <button data-tag="Talking" onclick="filterImages('Talking')">Talking 🗣</button>
+      <button data-tag="Sitting" onclick="filterImages('Sitting')">Sitting 🪑</button>
+      <button data-tag="Standing" onclick="filterImages('Standing')">Standing 🧍</button>
+      <button data-tag="Working" onclick="filterImages('Working')">Working 💻</button>
+      <button data-tag="Relaxed" onclick="filterImages('Relaxed')">Relaxed 😌</button>
+      <button data-tag="Confidence" onclick="filterImages('Confidence')">Confidence 💪</button>
+      <button data-tag="Loser" onclick="filterImages('Loser')">Loser 😞</button>
+      <button data-tag="Computer" onclick="filterImages('Computer')">Computer 🖥</button>
+      <button data-tag="Confused" onclick="filterImages('Confused')">Confused 😕</button>
+      <button data-tag="Thinking" onclick="filterImages('Thinking')">Thinking 🤔</button>
+      <button data-tag="Surprising" onclick="filterImages('Surprising')">Surprising 😲</button>
+      <button data-tag="People1" onclick="filterImages('People1')">People1 🧑</button>
+      <button data-tag="People2" onclick="filterImages('People2')">People2</button>
+      <button data-tag="People3" onclick="filterImages('People3')">People3</button>
+      <button data-tag="People∞" onclick="filterImages('People∞')">People∞</button>
+      <button data-tag="Front" onclick="filterImages('Front')">Front 👤</button>
+      <button data-tag="Back" onclick="filterImages('Back')">Back</button>
+      <button data-tag="Side" onclick="filterImages('Side')">Side</button>
+      <button data-tag="Old" onclick="filterImages('Old')">Old 👵</button>
+      <button data-tag="Baby" onclick="filterImages('Baby')">Baby 👶</button>
+      <button data-tag="Looking" onclick="filterImages('Looking')">Looking 👀</button>
+      <button data-tag="See" onclick="filterImages('See')">See 👁</button>
+      <button data-tag="Searching" onclick="filterImages('Searching')">Searching 🔍</button>
+      <button data-tag="shopping" onclick="filterImages('shopping')">Shopping 🛒</button>
+      <button data-tag="idea" onclick="filterImages('idea')">Idea 💡</button>
+    </div>
+    <div class="size-control">
+      <label for="size-slider">Image Size:</label>
+      <input type="range" id="size-slider" min="50" max="500" value="100" />
+    </div>
+  </header>
+  <div id="floating-button">
+    <button onclick="showLibraryInfo()">📖 Library Info</button>
+  </div>
+  <div id="popup" class="hidden">
+    <div class="popup-content">
+      <img src="images/library-info.jpg" alt="Library Information" />
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+  <main>
+    <!-- Lazy Loading गैलरी -->
+    <div id="image-gallery" class="gallery"></div>
+    <!-- Removed feedback section as requested -->
+  </main>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Mansur Videoscribe Library. All rights reserved.</p>
+    <p>Contact us: <a href="mailto:mansuraile72@gmail.com">mansuraile72@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1A8VqtLyZb/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/mansuralam5174?igsh=aWlncW9sY2E0eDdq" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/in/mansur-alam-902465199?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+  <script src="lazyload.js" defer></script>
+</body>
+</html>
